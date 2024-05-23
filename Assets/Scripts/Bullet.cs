@@ -5,32 +5,40 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     // Start is called before the first frame update
-    private void OnCollisionEnter(Collision collision){
-        if (collision.gameObject.CompareTag("Target")){
-            print("hit " + collision.gameObject.name + " !");
+    private void OnCollisionEnter(Collision objectWeHit
+    ){
+        if (objectWeHit
+        .gameObject.CompareTag("Target")){
+            print("hit " + objectWeHit
+            .gameObject.name + " !");
 
-            CreateBulletImpactEffect(collision);
+            CreateBulletImpactEffect(objectWeHit
+            );
 
             Destroy(gameObject);
         }
 
-        if(collision.gameObject.CompareTag("Wall")){
+        if(objectWeHit
+        .gameObject.CompareTag("Wall")){
             print("hit a wall");
-1
-            CreateBulletImpactEffect(collision);
 
-            Destroy(gameObjec);
+            CreateBulletImpactEffect(objectWeHit
+            );
+
+            Destroy(gameObject);
         }
     }
 
-    void CreateBulletImpactEffect(Collision collision){
-        ConactPoint contact -= collision.contacts[0];
+    void CreateBulletImpactEffect(Collision objectWeHit
+    ){
+        ConactPoint contact = objectWeHit.contacts[0];
 
         GameObject hole = Instantiate(
             GlobalReference.Instance.bulletImpactEffectPrefab, contact.point, Quaternion.LookRotation(contact.normal)
             );
 
-        hole.transform.SetParent(collision.gameObject.transform);
+        hole.transform.SetParent(objectWeHit
+        .gameObject.transform);
 
     }
 }
