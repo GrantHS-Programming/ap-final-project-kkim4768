@@ -31,12 +31,11 @@ public class Bullet : MonoBehaviour
 
     void CreateBulletImpactEffect(Collision objectWeHit
     ){
-        ConactPoint contact = objectWeHit.contacts[0];
+        ContactPoint contact = objectWeHit.contacts[0];
 
         GameObject hole = Instantiate(
-            GlobalReference.Instance.bulletImpactEffectPrefab, contact.point, Quaternion.LookRotation(contact.normal)
+            GlobalReferences.Instance.bulletImpactEffectPrefab, contact.point, Quaternion.LookRotation(contact.normal)
             );
-
         hole.transform.SetParent(objectWeHit
         .gameObject.transform);
 
