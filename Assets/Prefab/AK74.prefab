@@ -141,6 +141,7 @@ MonoBehaviour:
   bulletSpawn: {fileID: 2021703947664554248}
   bulletVelocity: 500
   bulletPrefabLifeTime: 3
+  muzzleEffect: {fileID: 0}
   currentShootingMode: 2
 --- !u!1 &4945918365281798759
 GameObject:
