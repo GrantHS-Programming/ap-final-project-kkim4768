@@ -29,8 +29,14 @@ public class InteractionManager : MonoBehaviour
 
             if (objectHitByRaycast.GetComponent<Weapon>())
             {
-                hoveredWeapon  objectHitByRaycast.gameObject.GetComponent<hoveredWeapon>();
-                hovered
+                hoveredWeapon = objectHitByRaycast.gameObject.GetComponent<Weapon>();
+                hoveredWeapon.GetComponent<Outline>().enabled = true;
+            }
+            else{
+                if (hoveredWeapon)
+                {
+                    hoveredWeapon.GetComponent<Outline>().enabled = false;
+                }
             }
         }
     }

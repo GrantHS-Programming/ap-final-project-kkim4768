@@ -6,6 +6,7 @@ using TMPro;
 public class Weapon : MonoBehaviour
 {
 
+    public bool isActiveWeapon;
 
     public bool isShooting, readyToShoot;
     bool allowReset = true;
@@ -65,7 +66,8 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (isActiveWeapon)
+        {
         if (bulletsLeft == 0 && isShooting)
         {
             SoundManager.Instance.emptyMagazineSound1911.Play();
@@ -102,6 +104,7 @@ public class Weapon : MonoBehaviour
             AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft / bulletsPerBurst}/{magazineSize / bulletsPerBurst}";
         }
     }
+    }
 
     private void FireWeapon()
     {
@@ -134,6 +137,7 @@ public class Weapon : MonoBehaviour
             Invoke("FireWeapon", shootingDelay);
         }
     }
+    
 
     private void Reload()
     {
