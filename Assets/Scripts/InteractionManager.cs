@@ -13,7 +13,8 @@ public class InteractionManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else{
+        else
+        {
             Instance = this;
         }
     }
@@ -26,13 +27,21 @@ public class InteractionManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             GameObject objectHitByRaycast = hit.transform.gameObject;
+            print(objectHitByRaycast);
 
             if (objectHitByRaycast.GetComponent<Weapon>())
             {
+                print("Weapon Selected");
                 hoveredWeapon = objectHitByRaycast.gameObject.GetComponent<Weapon>();
                 hoveredWeapon.GetComponent<Outline>().enabled = true;
+
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    WeaponManager.Instance.PickupWeapon(objectHitByRaycast.gameObject);
+                }
             }
-            else{
+            else
+            {
                 if (hoveredWeapon)
                 {
                     hoveredWeapon.GetComponent<Outline>().enabled = false;
