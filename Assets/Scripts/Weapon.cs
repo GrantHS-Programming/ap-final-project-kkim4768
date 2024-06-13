@@ -28,7 +28,7 @@ public class Weapon : MonoBehaviour
 
     public GameObject muzzleEffect;
 
-    private Animator animator;
+    internal Animator animator;
 
     public float reloadTime;
     public int magazineSize, bulletsLeft;

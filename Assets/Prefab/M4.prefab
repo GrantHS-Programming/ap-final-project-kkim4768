@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04891117aeee7427d912e364709893f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActiveWeapon: 0
   isShooting: 0
   readyToShoot: 0
   shootingDelay: 0.15
@@ -118,6 +119,8 @@ MonoBehaviour:
   magazineSize: 30
   bulletsLeft: 0
   isReloading: 0
+  spawnPosition: {x: 0.5, y: 2.5, z: 1.9}
+  spawnRotation: {x: 0, y: 180, z: 0}
   thisWeaponModel: 1
   currentShootingMode: 2
 --- !u!95 &6014360148474449765
